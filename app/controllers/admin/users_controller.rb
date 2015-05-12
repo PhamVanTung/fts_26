@@ -1,4 +1,7 @@
 class Admin::UsersController < ApplicationController
+  load_and_authorize_resource
+  before_action :require_admin
+
   def index
     @users = User.paginate page: params[:page], per_page: Settings.per_page
   end

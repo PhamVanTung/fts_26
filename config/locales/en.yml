@@ -28,6 +28,7 @@ en:
     reg_new: "characters minimum"
     current_password: "(we need your current password to confirm your changes)"
     avatar: "Choose your avatar"
+    admin: "You are not admin"
   button:
     back: "Back"
     update: "Update"
