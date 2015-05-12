@@ -21,3 +21,6 @@
 
 en:
   hello: "Hello world"
+
+  notice:
+    update_user: "Profile updated"
