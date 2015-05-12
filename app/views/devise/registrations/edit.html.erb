@@ -14,7 +14,12 @@
       <% end %>
 
       <div class="field">
-        <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+        <%= f.label :name %><br />
+        <%= f.text_field :name, autofocus: true %>
+      </div>
+
+      <div class="field">
+        <%= f.label :password %> <i><% I18n.t 'notice.change_password' %></i><br />
         <%= f.password_field :password, autocomplete: "off" %>
       </div>
 
@@ -24,7 +29,7 @@
       </div>
 
       <div class="field">
-        <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+        <%= f.label :current_password %> <i><% I18n.t 'notice.current_password' %></i><br />
         <%= f.password_field :current_password, autocomplete: "off" %>
       </div>
 

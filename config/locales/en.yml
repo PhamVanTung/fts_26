@@ -24,3 +24,6 @@ en:
 
   notice:
     update_user: "Profile updated"
+    change_password: "(leave blank if you don't want to change it)"
+    reg_new: "characters minimum"
+    current_password: "(we need your current password to confirm your changes)"
