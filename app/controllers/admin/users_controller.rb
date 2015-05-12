@@ -1,10 +1,6 @@
-class UsersController < ApplicationController
+class Admin::UsersController < ApplicationController
   def index
     @users = User.paginate page: params[:page], per_page: Settings.per_page
-  end
-
-  def show
-    @user = User.find params[:id]
   end
 
   def edit
@@ -15,9 +11,17 @@ class UsersController < ApplicationController
     @user = User.find params[:id]
     if @user.update_attributes user_params
       flash[:success] = I18n.t 'notice.update_user'
-      redirect_to @user
+      redirect_to admin_users_path
     else
       render 'edit'
+    end
+  end
+
+  def destroy
+    User.find(params[:id]).destroy
+    respond_to do |format|
+      format.html {redirect_to admin_users_path}
+      format.js
     end
   end
 
