@@ -10,9 +10,14 @@
       </div>
 
       <div class="field">
+        <%= f.label :name %><br />
+        <%= f.text_field :name, autofocus: true, class: 'form-control' %>
+      </div>
+
+      <div class="field">
         <%= f.label :password %>
         <% if @validatable %>
-          <em>(<%= @minimum_password_length %> characters minimum)</em>
+          <em>(<%= @minimum_password_length %> <%= I18n.t 'notice.reg_new' %>)</em>
         <% end %><br />
         <%= f.password_field :password, autocomplete: "off", class: 'form-control' %>
       </div>
