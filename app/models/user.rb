@@ -1,7 +1,9 @@
 class User < ActiveRecord::Base
+  enum role: [:admin, :normal]
+
   mount_uploader :avatar, PictureUploader
 
-  before_save {self.email = email.downcase}
+  before_save :update_email_role
   
   has_many :exams, dependent: :destroy
 
@@ -21,5 +23,10 @@ class User < ActiveRecord::Base
     if avatar.size > 5.megabytes
       errors.add :avatar, "should be less than 5MB"
     end
+  end
+
+  def update_email_role
+    self.email = email.downcase
+    self.normal! if role.nil?
   end
 end
