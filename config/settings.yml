@@ -1,3 +1,4 @@
 per_page: 10
 avatar: [100, 100]
 input_picture: 'image/jpeg,image/gif,image/png'
+num_of_questions: 10

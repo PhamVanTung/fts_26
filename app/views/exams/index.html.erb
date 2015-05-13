@@ -1,0 +1,7 @@
+<% provide :title, 'All Exams' %>
+<h1>All examinations</h1>
+<%= render "exams/form_exam" %>
+<br><br><br>
+<%= will_paginate @list_exams %><br>
+<%= render @list_exams %>
+<%= will_paginate @list_exams %>

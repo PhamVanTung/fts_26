@@ -31,6 +31,8 @@ en:
     admin: "You are not admin"
     category_new: "New category created !!!"
     category_update: "Category updated"
+    exam_create: "Exam created"
+    exam_fail: "Can not creat exam"
   button:
     back: "Back"
     update: "Update"
@@ -40,9 +42,20 @@ en:
     submit: "Submit"
     sign_up: "Sign up now!"
     new_category: "New Category"
+    start_new: "Start new"
+    start: "Start"
+    continue: "Continue"
+    view: "View"
   title:
     edit_category: "Edit category"
     all_category: "All Categories"
     new_category: "New Category"
     update_category: "Update category"
     home_page: "Home page"
+    sign_up: "Sign up now!"
+    view: "View"
+    wait: "Waiting"
+    testing: "Testing"
+    done: "Done"
+
+
