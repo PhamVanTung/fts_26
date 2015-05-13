@@ -1,0 +1,8 @@
+<% provide :title, I18n.t('title.all_category') %>
+<h1><%= I18n.t('title.all_category') %></h1>
+<%= will_paginate @categories %>
+<ul class="categories" id="categories">    
+  <%= render @categories %>
+</ul>
+<%= will_paginate @categories %>
+<div class="center"><%= link_to I18n.t('button.new_category'), new_admin_category_path, class: "btn btn-primary" %></div>
