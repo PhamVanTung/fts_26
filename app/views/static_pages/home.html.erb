@@ -1,11 +1,15 @@
-<div class="center jumbotron">
-  <h1>Welcome to the Test App</h1>
+<% if user_signed_in? %>
+  <h1><%= I18n.t('title.home_page') %></h1>
+<% else %>
+  <div class="center jumbotron">
+    <h1>Welcome to the Test App</h1>
 
-  <h2>
-    This is the home page for the
-    <a href="http://www.railstutorial.org/">Ruby on Rails Tutorial</a>
-    sample application.
-  </h2>
+    <h2>
+      This is the home page for the
+      <a href="http://www.railstutorial.org/">Ruby on Rails Tutorial</a>
+      sample application.
+    </h2>
 
-  <%= link_to "Sign up now!", new_user_registration_path, class: "btn btn-lg btn-primary" %>
-</div>
+    <%= link_to I18n.t('button.sign_up'), new_user_registration_path, class: "btn btn-lg btn-primary" %>
+  </div>
+<% end %>

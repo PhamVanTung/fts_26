@@ -1,0 +1,14 @@
+<li class="category-<%= category.id %>">
+  <div class="row">
+    <span class="col-md-9">
+      <div class="cateName"><%= category.name %></div>
+    </span>
+    <span class="col-md-1"><%= link_to I18n.t('button.delete'), admin_category_path(category),
+              method: :delete, remote: true, class: "btn btn-primary" %>
+    </span>
+    <span class="col-md-1"><%= link_to I18n.t('button.edit'), edit_admin_category_path(category),
+                               class: "btn btn-primary" %>
+    </span>
+    <span class="col-md-1"><%= link_to I18n.t('button.start'), '#', class: "btn btn-primary" %></span>
+  </div>
+</li>

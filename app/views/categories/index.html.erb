@@ -1,0 +1,7 @@
+<% provide :title, I18n.t('title.all_category') %>
+<h1><%= I18n.t('title.all_category') %></h1>
+<%= will_paginate @categories %>
+<ul class="categories" id="categories">    
+  <%= render @categories %>
+</ul>
+<%= will_paginate @categories %>
