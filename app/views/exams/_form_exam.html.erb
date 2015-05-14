@@ -1,0 +1,14 @@
+<%= form_for @exam do |f| %>
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-4">
+      <% @categories.each do |category| %>
+        <b><%= category.name %></b> &nbsp;
+        <%= f.radio_button :category_id, category.id %><br>
+      <% end %>
+    </div>
+    <div class="col-md-2">
+      <%= f.submit I18n.t("button.start_new"), class: "btn btn-lg btn-primary submit_exams" %>
+    </div>
+  </div>
+<% end %>

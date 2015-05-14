@@ -1,11 +1,23 @@
 Rails.application.routes.draw do
   devise_for :users
-  root             'static_pages#home'
+  authenticated :user do
+    devise_scope :users do
+      root 'exams#index'
+    end
+  end
+
+  unauthenticated do
+    devise_scope :user do
+      root 'static_pages#home', as: 'unauthenticated'
+    end
+  end
+
   get 'help'    => 'static_pages#help'
   get 'about'   => 'static_pages#about'
   get 'contact' => 'static_pages#contact'
   resources :users, expect: [:delete, :index]
   resources :categories, only:[:index]
+  resources :exams, expect: [:delete]
   namespace :admin do
     root 'users#index'
     resources :users

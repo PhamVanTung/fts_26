@@ -24,4 +24,11 @@ $(document).ready(function () {
       $(this).val("");
     }
   });
+
+  $(".submit_exams").on('click', function () {
+    if($("input[type=radio]:checked").size() == 0) {
+      alert("Please chosen a category");
+      return false;
+    }
+  });
 });
