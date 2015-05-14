@@ -6,6 +6,10 @@ class ExamsController < ApplicationController
     @exam = current_user.exams.build
   end
 
+  def show
+    @exam = Exam.find params[:id]
+  end
+
   def create
     if params[:exam]
       @exam = current_user.exams.build exams_params
@@ -22,8 +26,31 @@ class ExamsController < ApplicationController
     end
   end
 
+  def edit
+    @exam = Exam.find params[:id]
+    @results = @exam.results
+    if @exam.done?
+      flash[:danger] = I18n.t "notice.done_exam"
+      redirect_to root_path
+    else
+      @exam.update_status_testing
+    end
+  end
+
+  def update
+    @exam = Exam.find params[:id]
+    if @exam.update_attributes exams_params
+      flash[:success] = I18n.t "notice.submit_exam"
+      redirect_to root_path
+    else
+      flash[:danger] = I18n.t "notice.fail_to_submit"
+      render "edit"
+    end
+  end
+
   private
   def exams_params
-    params.require(:exam).permit :category_id, results_attributes: [:question_id]
+    params.require(:exam).permit :category_id, :status, results_attributes:
+                                  [:id, :question_id, :answer_id]
   end
 end

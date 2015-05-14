@@ -3,7 +3,7 @@
     <div class="col-md-2"></div>
     <div class="col-md-4">
       <% @categories.each do |category| %>
-        <b><%= category.name %></b> &nbsp;
+        <b class="col-md-8"><%= category.name %></b> &nbsp;
         <%= f.radio_button :category_id, category.id %><br>
       <% end %>
     </div>
