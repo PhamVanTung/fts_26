@@ -1,0 +1,11 @@
+<div class="answer-option"> 
+  <span><%= f.label :content, I18n.t("button.answer") %></span>
+  <div class= "row">
+    <span class="col-md-9"><%= f.text_field :content, class: 'form-control' %></span>
+    <div class="col-md-2">
+      <%= f.label :correct %></span>
+      <%= f.check_box :correct, class: "answer-checkbox" %></span>
+      <p><%= link_to_remove_fields I18n.t("button.remove"), f %></p>
+    </div>
+  </div>
+</div>

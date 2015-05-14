@@ -17,6 +17,7 @@
 //= require turbolinks
 //= require_tree .
 $(document).ready(function () {
+
   $('#user_avatar').on('change', function() {
     var size_in_megabytes = this.files[0].size/1024/1024;
     if (size_in_megabytes > 5) {
@@ -31,4 +32,25 @@ $(document).ready(function () {
       return false;
     }
   });
+  
+  $("body").on('click','.answer-checkbox', function () {
+    $(this).closest(".my-answer").find("input[type='checkbox']")
+      .not(this).prop("checked", false);
+    $(this).prop("checked", true)
+  });
+
+  $.fn.myFunction = function(){ 
+        alert('You have successfully defined the function!'); 
+  }
 });
+
+function remove_fields(link) {
+  $(link).prev("input[type=hidden]").prop('value', true);
+  $(link).closest('.answer-option').hide();
+}
+
+function add_fields(link, association, content) {
+  var new_id = new Date().getTime();
+  var regexp = new RegExp("new_" + association, "g");
+  $(link).parent().prev().append(content.replace(regexp, new_id));
+}
