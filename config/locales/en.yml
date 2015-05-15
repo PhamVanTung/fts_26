@@ -33,6 +33,9 @@ en:
     category_update: "Category updated"
     exam_create: "Exam created"
     exam_fail: "Can not creat exam"
+    done_exam: "You done this exam before"
+    submit_exam: "Exam finished !!!"
+    fail_to_submit: "Exam can not finish !!!"
   button:
     back: "Back"
     update: "Update"
@@ -57,5 +60,7 @@ en:
     wait: "Waiting"
     testing: "Testing"
     done: "Done"
-
-
+    result: "Result"
+    question: "Question"
+    your_chosen: "Your chosen"
+    answer: "Answer"

@@ -4,13 +4,13 @@
   <div class="col-md-2"><%= exam.category.name %></div>
   <% if exam.wait? %>
     <div class="col-md-5"><%= I18n.t "title.wait" %></div>
-    <%= link_to I18n.t("button.start"), '#' %>
+    <%= link_to I18n.t("button.start"), edit_exam_path(exam) %>
   <% elsif exam.testing? %>
     <div class="col-md-5"><%= I18n.t "title.testing" %></div>
-      <%= link_to I18n.t("button.continue"), '#' %>
+      <%= link_to I18n.t("button.continue"), edit_exam_path(exam) %>
   <% else %>
     <div class="col-md-5"><%= I18n.t "title.done" %></div>
-    <%= link_to I18n.t("button.view"), '#' %>
+    <%= link_to I18n.t("button.view"), exam_path(exam) %>
   <% end %>
 </div>
 <br><br><br>

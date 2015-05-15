@@ -1,0 +1,7 @@
+<b><%= f.object.question.content %><br><br></b>
+<%= f.hidden_field :question_id, value: f.object.question.id %>
+<% f.object.question.answers.each do |answer| %>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= f.radio_button :answer_id, answer.id %>
+  <%= answer.content %><br>
+<% end %>
+<br>

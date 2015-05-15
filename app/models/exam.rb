@@ -11,8 +11,13 @@ class Exam < ActiveRecord::Base
 
   scope :order_time, ->{order created_at: :desc}
 
-  before_save {self.status = "wait"}
-  after_save :create_result
+  before_create {self.status = "wait"}
+  after_create :create_result
+  before_update :update_score
+
+  def update_status_testing
+    self.update_attributes status: "testing"
+  end
 
   private
   def create_result
@@ -20,5 +25,11 @@ class Exam < ActiveRecord::Base
     @questions.each do |q|
       Result.create(exam_id: self.id, question_id: q.id)
     end
+  end
+
+  def update_score
+    self.score = results.select do |result|
+    result.answer == result.answers.correct.first
+    end.count
   end
 end

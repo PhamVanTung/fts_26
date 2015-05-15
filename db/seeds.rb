@@ -31,7 +31,7 @@ questions = Question.order(:created_at).take(100)
   questions.each{|question| question.answers.create!(content: content, correct: false)}
 end
 
-questions.each do |word|
+questions.each do |question|
   content = Faker::Lorem.word
   question.answers.create!(content: content, correct: true)
 end

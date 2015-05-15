@@ -1,0 +1,9 @@
+<%= form_for @exam do |f| %>
+  <%= f.hidden_field :status, value: "done" %>
+  <div class="row">
+    <%= f.fields_for :results do |builder| %>
+      <%= render 'result', f: builder %>
+    <% end %>
+    <%= f.submit I18n.t("button.submit"), class: "btn btn-primary" %>
+  </div>
+<% end %>
