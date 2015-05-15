@@ -39,6 +39,7 @@ en:
     question_update: "Question updated"
     question_create: "Word created"
     all: "All"
+    notice_submit: "Notice : If you refresh or back this page. This exam will auto submit"
   button:
     back: "Back"
     update: "Update"

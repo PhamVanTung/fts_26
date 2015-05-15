@@ -1,9 +1,11 @@
+<h3 id="countdown" class="center"></h3><br>
+<p hidden id="time"><%= @exam.start_time + Settings.time_for_exam %></p><br>
+<div class="center notice_exam"><%= I18n.t "notice.notice_submit" %></div><br>
 <%= form_for @exam do |f| %>
-  <%= f.hidden_field :status, value: "done" %>
   <div class="row">
     <%= f.fields_for :results do |builder| %>
       <%= render 'result', f: builder %>
     <% end %>
-    <%= f.submit I18n.t("button.submit"), class: "btn btn-primary" %>
+    <%= f.submit I18n.t("button.submit"), class: "btn btn-primary submit_exam" %>
   </div>
 <% end %>
