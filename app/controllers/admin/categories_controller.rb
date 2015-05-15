@@ -1,5 +1,5 @@
 class Admin::CategoriesController < ApplicationController
-  before_action :require_admin, :authenticate_user!
+  before_action :authenticate_user!, :require_admin
   def index
     @categories = Category.paginate page: params[:page], per_page: Settings.per_page
   end

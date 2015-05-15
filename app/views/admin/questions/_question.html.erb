@@ -1,0 +1,14 @@
+<li class="question-<%= question.id %>">
+  <div class="row">
+    <div class="question-content"><span class="col-md-8"><%= question.content %></span></div>
+    <span class="col-md-1"><%= link_to I18n.t("button.delete"), admin_question_path(question),
+          method: :delete, remote: true, class: "btn btn-primary" %></span>
+    <span class="col-md-1"><%= link_to I18n.t("button.edit"), edit_admin_question_path(question),
+          class: "btn btn-primary" %></span>
+    <div class="question-content"><span class="col-md-2">
+      <% if question.answers.correct.any?  %>
+        <%= question.answers.correct.first.content %>
+      <% end %>
+    </span></div>
+  </div>
+</li>

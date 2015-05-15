@@ -1,0 +1,21 @@
+<% provide :title, I18n.t("title.all_question") %>
+<h1><%= I18n.t("title.all_question") %></h1>
+<div>
+  <%= form_tag admin_questions_path, method: :get do %>
+    <label for="category_id">Category</label>
+    <%= render "shared/form_filter_question" %>
+    <div class="row">
+      <div class="col-md-1">
+        <%= submit_tag I18n.t("button.filter"), class: "btn btn-primary" %>
+      </div>
+      <div class="col-md-3">
+        <%= link_to I18n.t("button.new_question"),  new_admin_question_path ,class: "btn btn-primary" %>
+      </div>
+    </div>
+  <% end %>
+</div>
+<%= will_paginate @questions %>
+<ul class="questions" id="questions">
+  <%= render @questions %>
+</ul>
+<%= will_paginate @questions %>
