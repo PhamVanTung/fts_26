@@ -6,6 +6,11 @@ class Admin::UsersController < ApplicationController
     @users = User.paginate page: params[:page], per_page: Settings.per_page
   end
 
+  def show
+    @user = User.find params[:id]
+    @exams = @user.exams.order_time.paginate page: params[:page], per_page: Settings.per_page
+  end
+
   def edit
     @user = User.find params[:id]
   end

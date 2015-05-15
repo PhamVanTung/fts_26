@@ -1,0 +1,9 @@
+<b><%= exam.created_at %></b>
+<div class="row">
+  <div class="col-md-5"><%= exam.category.name %></div>
+  <div class="col-md-5">
+    <%= exam.wait? ? I18n.t("title.wait") : I18n.t("title.done") %>
+  </div>
+  <%= link_to I18n.t("button.view"), exam_path(exam) %>
+</div>
+<br><br><br>
