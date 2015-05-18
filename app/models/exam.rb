@@ -1,5 +1,5 @@
 class Exam < ActiveRecord::Base
-  enum status: [:wait, :testing, :done]
+  enum status: [:wait, :done]
 
   belongs_to :user
   belongs_to :category
@@ -13,10 +13,10 @@ class Exam < ActiveRecord::Base
 
   before_create {self.status = "wait"}
   after_create :create_result
-  before_update :update_score
+  before_update :update_score, :update_status_done
 
-  def update_status_testing
-    self.update_attributes status: "testing"
+  def update_start_time
+    self.update_attributes start_time: DateTime.now
   end
 
   private
@@ -31,5 +31,9 @@ class Exam < ActiveRecord::Base
     self.score = results.select do |result|
     result.answer == result.answers.correct.first
     end.count
+  end
+
+  def update_status_done
+    self.status = "done"
   end
 end

@@ -3,3 +3,4 @@ avatar: [100, 100]
 input_picture: 'image/jpeg,image/gif,image/png'
 num_of_questions: 10
 default_number_answer: 4
+time_for_exam: 600

@@ -32,8 +32,8 @@ class ExamsController < ApplicationController
     if @exam.done?
       flash[:danger] = I18n.t "notice.done_exam"
       redirect_to root_path
-    else
-      @exam.update_status_testing
+    elsif @exam.start_time.nil?
+      @exam.update_start_time
     end
   end
 
@@ -50,7 +50,7 @@ class ExamsController < ApplicationController
 
   private
   def exams_params
-    params.require(:exam).permit :category_id, :status, results_attributes:
-                                  [:id, :question_id, :answer_id]
+    params.require(:exam).permit :category_id, results_attributes:
+      [:id, :question_id, :answer_id]
   end
 end

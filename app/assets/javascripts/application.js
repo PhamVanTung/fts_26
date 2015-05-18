@@ -40,8 +40,24 @@ $(document).ready(function () {
   });
 
   $.fn.myFunction = function(){ 
-        alert('You have successfully defined the function!'); 
+    alert('You have successfully defined the function!'); 
   }
+
+  var x = document.getElementById("time").innerHTML;
+  var target_date = new Date(x).getTime();
+  var days, hours, minutes, seconds;
+  var countdown = document.getElementById("countdown");
+  var interval = setInterval(function(){
+    var current_date = new Date().getTime();
+    var seconds_left = (target_date - current_date) / 1000;
+    minutes = parseInt(seconds_left / 60);
+    seconds = parseInt(seconds_left % 60);
+    if ((minutes + seconds) > 0){
+      countdown.innerHTML = "Time left: " + minutes + "m, " + seconds + "s";
+    } else{
+      $(".submit_exam").click();
+    }
+  }, 1000);
 });
 
 function remove_fields(link) {
