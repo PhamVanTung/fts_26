@@ -21,6 +21,7 @@ gem 'fog',                     '1.23.0'
 gem "rails_config"
 gem "cancancan"
 gem "friendly_id", "~> 5.0.1"
+gem 'ransack'
 
 group :development, :test do
   gem 'sqlite3',     '1.3.9'

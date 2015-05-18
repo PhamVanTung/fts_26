@@ -3,7 +3,8 @@ class Admin::UsersController < ApplicationController
   before_action :require_admin
 
   def index
-    @users = User.paginate page: params[:page], per_page: Settings.per_page
+    @q = User.ransack(params[:q])
+    @users = @q.result(distinct: true).paginate page: params[:page], per_page: Settings.per_page
   end
 
   def show
