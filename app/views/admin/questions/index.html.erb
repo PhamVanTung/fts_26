@@ -1,5 +1,6 @@
 <% provide :title, I18n.t("title.all_question") %>
 <h1><%= I18n.t("title.all_question") %></h1>
+<%= render "sreach_form"%>
 <div>
   <%= form_tag admin_questions_path, method: :get do %>
     <label for="category_id">Category</label>
