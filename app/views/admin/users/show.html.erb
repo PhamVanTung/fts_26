@@ -1,0 +1,12 @@
+<% provide :title, @user.name %>
+<div class="row">
+  <div class="col-md-3">
+    <%= image_tag @user.avatar if @user.avatar? %><br><br>
+    <b><%= @user.name %></b>
+  </div>
+  <div class="col-md-7">
+    <%= will_paginate @exams %><br>
+      <%= render @exams %>
+    <%= will_paginate @exams %>
+  </div>
+</div>
