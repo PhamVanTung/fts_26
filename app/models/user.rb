@@ -1,4 +1,7 @@
 class User < ActiveRecord::Base
+  extend FriendlyId
+  friendly_id :slug_candidates, use: [:slugged, :finders]
+
   enum role: [:admin, :normal]
 
   mount_uploader :avatar, PictureUploader
@@ -17,6 +20,13 @@ class User < ActiveRecord::Base
                     uniqueness: {case_sensitive: false}
   validates :password, length: {minimum: 6}, allow_blank: true
   validate  :avatar_size
+
+  def slug_candidates
+    [
+      :name,
+      [:name, :id]
+    ]
+  end
 
   private
   def avatar_size
