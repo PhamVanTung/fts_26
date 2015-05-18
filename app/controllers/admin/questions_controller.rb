@@ -3,8 +3,8 @@ class Admin::QuestionsController < ApplicationController
 
   def index
     @categories = Category.all
-    @questions = Question.filter_category(params[:category_id])
-      .paginate page: params[:page], per_page: Settings.per_page
+    @q = Question.ransack(params[:q])
+    @questions = @q.result(distinct: true).paginate page: params[:page], per_page: Settings.per_page
   end
 
   def new
