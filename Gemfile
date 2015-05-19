@@ -22,12 +22,15 @@ gem "rails_config"
 gem "cancancan"
 gem "friendly_id", "~> 5.0.1"
 gem 'ransack'
+gem 'whenever', require: false
+
 
 group :development, :test do
   gem 'sqlite3',     '1.3.9'
   gem 'byebug',      '3.4.0'
   gem 'web-console', '2.0.0.beta3'
-  gem 'spring'
+  gem "letter_opener"
+  gem 'letter_opener_web', "~> 1.2.0"
 end
 
 group :test do

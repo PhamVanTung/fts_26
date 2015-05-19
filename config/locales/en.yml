@@ -85,3 +85,7 @@ en:
     logout: "Log out"
     login: "Log in"
     test_app: "TEST APP"
+  email:
+    notice_exam: "Notice exam"
+    notifi: "Login and do your exam"
+    

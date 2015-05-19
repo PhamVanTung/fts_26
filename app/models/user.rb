@@ -39,4 +39,8 @@ class User < ActiveRecord::Base
     self.email = email.downcase
     self.normal! if role.nil?
   end
+
+  def self.send_mail
+    User.all.each {|user| UserMailer.notice_exam(user).deliver_now}
+  end
 end
