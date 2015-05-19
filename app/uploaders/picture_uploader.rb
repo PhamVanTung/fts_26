@@ -4,6 +4,16 @@ class PictureUploader < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick
   process resize_to_limit: Settings.avatar
 
+  if Rails.env.production?
+    storage :fog
+  else
+    storage :file
+  end
+
+  def cache_dir
+    "#{Rails.root}/tmp/uploads"
+  end
+
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
   # include CarrierWave::MiniMagick
