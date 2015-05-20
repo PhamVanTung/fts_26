@@ -32,8 +32,11 @@ class Ability
       user ||= User.new
       if user.admin?
         can :manage, User
+        can :manage, Exam
       elsif user.normal?
         can :manage, User, id: user.id
+        can [:read, :update], Exam, user_id: user.id
+        can :create, Exam
       end
     end
   end

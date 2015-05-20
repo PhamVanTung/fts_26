@@ -1,4 +1,6 @@
 class ExamsController < ApplicationController
+  load_and_authorize_resource
+
   def index
     @list_exams = current_user.exams.order_time.paginate page: params[:page],
                                                 per_page: Settings.per_page
@@ -12,7 +14,7 @@ class ExamsController < ApplicationController
 
   def create
     if params[:exam]
-      @exam = current_user.exams.build exams_params
+      @exam = current_user.exams.build exam_params
       if @exam.save
         flash[:success] = I18n.t "notice.exam_create"
         redirect_to root_path
@@ -39,7 +41,7 @@ class ExamsController < ApplicationController
 
   def update
     @exam = Exam.find params[:id]
-    if @exam.update_attributes exams_params
+    if @exam.update_attributes exam_params
       flash[:success] = I18n.t "notice.submit_exam"
       redirect_to root_path
     else
@@ -49,7 +51,7 @@ class ExamsController < ApplicationController
   end
 
   private
-  def exams_params
+  def exam_params
     params.require(:exam).permit :category_id, results_attributes:
       [:id, :question_id, :answer_id]
   end

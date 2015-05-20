@@ -8,6 +8,7 @@ class Exam < ActiveRecord::Base
   validates :category_id, presence: true
 
   accepts_nested_attributes_for :results, allow_destroy: true
+  accepts_nested_attributes_for :category, allow_destroy: true
 
   scope :order_time, ->{order created_at: :desc}
 
